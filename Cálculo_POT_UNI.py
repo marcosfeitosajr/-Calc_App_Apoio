@@ -10,8 +10,8 @@ st.set_page_config(
 )
 
 
-maxNsd = st.number_input('Qual é a carga máxima de trabalho vertical em kN?',0.00) * 1000
-Vxd = st.number_input('Qual é o deslocamento e mm?', 0.00)
+maxNsd = st.number_input('Maximum vertical load ULS kN?',0.00) * 1000
+Vxd = st.number_input('Non-Seismic Longitudinal movement in mm?', 0.00)
 
 
 condicao = st.button('Calcular')
@@ -355,6 +355,7 @@ if condicao == True:
     st.markdown('### 1 - Elastômero')
     st.write('O Dp = {} mm'.format(D))
     st.write('A espessura é hr = {} mm'.format(tmin))
+    st.write('O peso do elastômero é {} g'.format(round(peso_elastômero,2)))
     st.write('')
 
     #Pote
@@ -367,6 +368,7 @@ if condicao == True:
     st.write('O diâmetro do fundo do pote é Wpot = {} mm'.format(D + B + B + solda + solda + 6))
     st.write('A espessura do fundo do pote é tb = {} mm'.format(T))
     st.write('O cordão de solda é w = {} mm'.format(solda))
+    st.write('O peso do pote é {} g'.format(round(peso_pote,2)))
     st.write('')
 
     #Pistão
@@ -385,12 +387,14 @@ if condicao == True:
     st.write('A profundidade de acomodação do PTFE é aPTFE = {} mm'.format(tPTFE/2))
     st.write('O canal da guia será Wgu = {} mm'.format(Wgu))
     st.write('A profundidade do canal da guia a partir do topo do pistão é tWgu = {} mm'.format(tPTFE))
+    st.write('O peso do pistão é {} g'.format(round(peso_pistao,2)))
     st.write('')
 
     #PTFE
     st.markdown('### 4 - Bipartido de PTFE')
     st.write('O diâmetro do PTFE bipartido é DPTFE = {} mm'.format(dPTFE))
     st.write('A espessura do PTFE bipartido é tPTFE = {} mm'.format(tPTFE))
+    st.write('O peso dos 2 PTFE bipartido é {} g'.format(round(peso_ptfe,2)))
     st.write('')
 
     #Guia
@@ -399,6 +403,7 @@ if condicao == True:
     st.write('A altura da guia é Tgu = {} mm'.format(Tgu))
     st.write('A largura da guia é Wgu = {} mm'.format(Wgu))
     st.write('O comprimento da guia é Lgu = {} mm'.format(round(Lgu,2)))
+    st.write('O peso da guia é {} g'.format(round(peso_guia,2)))
     st.write('')
 
     #CM Strip
@@ -406,6 +411,7 @@ if condicao == True:
     st.write('A espessura do CM Strip é CM_t = {} mm'.format(round(CM_t,2)))
     st.write('A largura do CM Strip é Ws1 = {} mm'.format(Ws1))
     st.write('O comprimento do CM Strip é Lgu = {} mm'.format(Lgu))
+    st.write('O peso dos 2 CM Strip é {} g'.format(round(peso_Cmstrip,2)))
     st.write('')
 
     #Inox
@@ -415,6 +421,7 @@ if condicao == True:
     st.write('O comprimento do inox é Lsp = {} mm'.format(Lsp))
     st.write('O chanfro dos cantos do inox é ch_i = {} mm'.format(chanfro_inox))
     st.write('O raio externo da dobra do inox é r_i = {} mm'.format(raio_inox))
+    st.write('O peso dos 2 inox é {} g'.format(peso_inox))
     st.write('')
 
     #Placa superior
@@ -424,7 +431,9 @@ if condicao == True:
     st.write('A espessura da placa superior é Tsp = {} mm'.format(Tsp))
     st.write('A largura do canal da placa superior é Wgu2 = {} mm'.format(Wgu2))
     st.write('A profunidade do canal da placa superior é Csp = {} mm'.format(cavidade))
+    st.write('O peso da placa superior é {} g'.format(round(peso_placa_sup,2)))
     st.write('')
 
     #Dimensões gerais
     st.write('A altura total do aparelho é {} mm'.format(T + tmin + hpistão + (tPTFE/2) + e_inox + Tsp))
+    st.write('O peso total do aparelho é {} kg'.format(round(peso_total/1000,2)))
