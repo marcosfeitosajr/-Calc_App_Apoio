@@ -11,7 +11,7 @@ st.set_page_config(
 
 
 maxNsd = st.number_input('Maximum vertical load ULS kN?',0.00) * 1000
-Vxd = st.number_input('Non-Seismic Longitudinal movement in mm?', 0.00)
+Vxd = st.number_input('Non-Seismic Longitudinal movement mm?', 0.00)
 
 
 condicao = st.button('Calcular')
