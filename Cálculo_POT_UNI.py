@@ -425,7 +425,7 @@ if condicao == True:
     st.write('O comprimento do inox é Lsp = {} mm'.format(Lsp))
     st.write('O chanfro dos cantos do inox é ch_i = {} mm'.format(chanfro_inox))
     st.write('O raio externo da dobra do inox é r_i = {} mm'.format(raio_inox))
-    st.write('O peso dos 2 inox é {} kg'.format(peso_inox/1000))
+    st.write('O peso dos 2 inox é {} kg'.format(round(peso_inox/1000,2)))
     st.write('')
 
     #Placa superior
