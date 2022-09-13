@@ -349,6 +349,8 @@ if condicao == True:
 
     #Resultado do modelo
 
+    
+    st.image('Imagem3.png')
     #Elastômero
     st.markdown('### 1 - Elastômero')
     st.write('O Dp = {} mm'.format(D))
