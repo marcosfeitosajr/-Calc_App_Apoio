@@ -358,6 +358,7 @@ if condicao == True:
     st.write('')
 
     #Pote
+    st.image('Imagem4.png')
     st.markdown('### 2 - Pote')
     st.write('O diâmetro interno Dp = {} mm'.format(D))
     st.write('O diâmetro externo no pote é Dpot = {} mm'.format(2 * B + D))
@@ -393,6 +394,7 @@ if condicao == True:
     st.write('')
 
     #Guia
+    st.image('Imagem5.png')
     st.markdown('### 5 - Guia')
     st.write('A altura da guia é Tgu = {} mm'.format(Tgu))
     st.write('A largura da guia é Wgu = {} mm'.format(Wgu))
