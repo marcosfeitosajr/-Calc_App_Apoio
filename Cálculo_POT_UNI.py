@@ -349,6 +349,10 @@ if condicao == True:
 
     #Resultado do modelo
 
+    st.markdown('### Dimensões gerais')
+    st.write('A altura total do aparelho é {} mm'.format(T + tmin + hpistão + (tPTFE/2) + e_inox + Tsp))
+    st.write('O peso total do aparelho é {} kg'.format(round(peso_total/1000,2)))
+    st.write('')
     
     st.image('Imagem3.png')
     #Elastômero
@@ -434,6 +438,4 @@ if condicao == True:
     st.write('O peso da placa superior é {} kg'.format(round(peso_placa_sup/1000,2)))
     st.write('')
 
-    #Dimensões gerais
-    st.write('A altura total do aparelho é {} mm'.format(T + tmin + hpistão + (tPTFE/2) + e_inox + Tsp))
-    st.write('O peso total do aparelho é {} kg'.format(round(peso_total/1000,2)))
+
