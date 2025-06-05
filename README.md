@@ -13,4 +13,6 @@ Este projeto é uma aplicação [Streamlit](https://streamlit.io/) para cálculo
    streamlit run app.py
    ```
 
-O antigo arquivo `Cálculo_POT_UNI.py` foi refatorado e seu código principal encontra-se em `calc_app/pot_calc.py`.
+O antigo arquivo `Cálculo_POT_UNI.py` foi refatorado. O cálculo está agora
+organizado no módulo `calc_app/calculator.py` e a interface em
+`calc_app/pot_calc.py`.
