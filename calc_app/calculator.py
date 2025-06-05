@@ -1,5 +1,52 @@
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
+
+
+@dataclass
+class PotResult:
+    """Result values returned by :class:`PotCalculator`."""
+    T_total: float
+    peso_total: float
+    D: float
+    tmin: float
+    peso_elastomero: float
+    B: float
+    H: float
+    T: float
+    solda: float
+    peso_pote: float
+    Dpiston: float
+    hpistao: float
+    Dal: float
+    chanfro: float
+    a_chanf: float
+    hchanf: float
+    Hdex: float
+    dPTFE: float
+    Wgu: float
+    Tgu: float
+    Lgu: float
+    b: float
+    peso_pistao: float
+    peso_guia: float
+    peso_ptfe: float
+    Ws1: float
+    CM_t: float
+    peso_Cmstrip: float
+    e_inox: float
+    L_inox: float
+    Lsp: float
+    chanfro_inox: float
+    raio_inox: float
+    peso_inox: float
+    Wsp: float
+    Tsp: float
+    Wgu2: float
+    cavidade: float
+    peso_placa_sup: float
+
+    def to_dict(self) -> dict:
+        return asdict(self)
 
 @dataclass
 class PotCalculator:
@@ -158,46 +205,54 @@ class PotCalculator:
         peso_inox = (L_inox * Lsp - chanfro_inox ** 2) * e_inox * d_inox * 2
         peso_ptfe = Abip * tPTFE * d_PTFE
         peso_placa_sup = (Wsp * Tsp - Wgu2 * cavidade) * Lsp * d_aco
-        peso_total = peso_elastomero + peso_pote + peso_pistao + peso_guia + peso_Cmstrip + peso_inox + peso_placa_sup
-        return {
-            "T_total": T + tmin + hpistao + (tPTFE / 2) + e_inox + Tsp,
-            "peso_total": round(peso_total / 1000, 2),
-            "D": D,
-            "tmin": tmin,
-            "peso_elastomero": round(peso_elastomero / 1000, 2),
-            "B": B,
-            "H": H,
-            "T": T,
-            "solda": solda,
-            "peso_pote": round(peso_pote / 1000, 2),
-            "Dpiston": Dpiston,
-            "hpistao": hpistao,
-            "Dal": Dal,
-            "chanfro": chanfro,
-            "a_chanf": a_chanf,
-            "hchanf": round(hchanf, 2),
-            "Hdex": Hdex,
-            "dPTFE": dPTFE,
-            "Wgu": Wgu,
-            "Tgu": Tgu,
-            "Lgu": round(Lgu, 2),
-            "b": b,
-            "peso_pistao": round(peso_pistao / 1000, 2),
-            "peso_guia": round(peso_guia / 1000, 2),
-            "peso_ptfe": round(peso_ptfe / 1000, 2),
-            "Ws1": Ws1,
-            "CM_t": CM_t,
-            "peso_Cmstrip": round(peso_Cmstrip / 1000, 2),
-            "e_inox": e_inox,
-            "L_inox": L_inox,
-            "Lsp": Lsp,
-            "chanfro_inox": chanfro_inox,
-            "raio_inox": raio_inox,
-            "peso_inox": round(peso_inox / 1000, 2),
-            "Wsp": Wsp,
-            "Tsp": Tsp,
-            "Wgu2": Wgu2,
-            "cavidade": cavidade,
-            "peso_placa_sup": round(peso_placa_sup / 1000, 2),
-        }
+        peso_total = (
+            peso_elastomero
+            + peso_pote
+            + peso_pistao
+            + peso_guia
+            + peso_Cmstrip
+            + peso_inox
+            + peso_placa_sup
+        )
+        return PotResult(
+            T_total=T + tmin + hpistao + (tPTFE / 2) + e_inox + Tsp,
+            peso_total=round(peso_total / 1000, 2),
+            D=D,
+            tmin=tmin,
+            peso_elastomero=round(peso_elastomero / 1000, 2),
+            B=B,
+            H=H,
+            T=T,
+            solda=solda,
+            peso_pote=round(peso_pote / 1000, 2),
+            Dpiston=Dpiston,
+            hpistao=hpistao,
+            Dal=Dal,
+            chanfro=chanfro,
+            a_chanf=a_chanf,
+            hchanf=round(hchanf, 2),
+            Hdex=Hdex,
+            dPTFE=dPTFE,
+            Wgu=Wgu,
+            Tgu=Tgu,
+            Lgu=round(Lgu, 2),
+            b=b,
+            peso_pistao=round(peso_pistao / 1000, 2),
+            peso_guia=round(peso_guia / 1000, 2),
+            peso_ptfe=round(peso_ptfe / 1000, 2),
+            Ws1=Ws1,
+            CM_t=CM_t,
+            peso_Cmstrip=round(peso_Cmstrip / 1000, 2),
+            e_inox=e_inox,
+            L_inox=L_inox,
+            Lsp=Lsp,
+            chanfro_inox=chanfro_inox,
+            raio_inox=raio_inox,
+            peso_inox=round(peso_inox / 1000, 2),
+            Wsp=Wsp,
+            Tsp=Tsp,
+            Wgu2=Wgu2,
+            cavidade=cavidade,
+            peso_placa_sup=round(peso_placa_sup / 1000, 2),
+        )
 
